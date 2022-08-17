@@ -1,19 +1,22 @@
 # Setup
 
+First you'll need a working version of PostgreSQL installed locally. If you don't have it, install Postgres.app and follow the PostgreSQL documentation to make sure you have the appropriate role permissions to run commands from your terminal.
 
-Create database:
+The members of the network are identified by their wallet, but they are registered and known to the contract owner, who serves as the administrator of the network. The contract owner/administrator maintains a database of each member's identity which is not stored on chain. 
+
+Create this database:
 ```
 createdb blockchain-carbon-accounting
 ```
 
-In the repository root directory copy `.env.SAMPLE` to `.env` and fill in the configuraiton set up:
-- Your PostgreSQL host, port, username, and password.
-- The Google API key for the [Google DistanceMatrix API](https://developers.google.com/maps/documentation/distance-matrix/overview) and [Google Geocode API](https://developers.google.com/maps/documentation/geocoding/overview).
+In the repository root directory copy `.env.SAMPLE` to `.env` and fill in the configuration set up:
+- Your PostgreSQL host, port, username, and password.  
+- The Google API key for the [Google DistanceMatrix API](https://developers.google.com/maps/documentation/distance-matrix/overview) and [Google Geocode API](https://developers.google.com/maps/documentation/geocoding/overview). (You may need to click "Get Started" and sign up for a free Google Cloud trial)
 - If you have access to the [UPS Developer Kit](https://www.ups.com/upsdeveloperkit?loc=en_US), your UPS username, password, and access key.
 - Email sending parameters.
 - Smart contract addresses.
 
-
+IPFS is used for storing the documents that members of the network will submit to auditors to review and verify.
 Install ipfs and run:
 ```
 ipfs daemon --enable-pubsub-experiment
